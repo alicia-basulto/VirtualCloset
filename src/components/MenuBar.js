@@ -1,26 +1,19 @@
 import React, { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import MenuItem from './MenuItem';
-import './MenuBar.css';
+import './styles/MenuBar.css';
 
-const MenuBar = () => {
-    const [menuActive, setMenuActive] = useState(false);
-
-    const handleToggleMenu = () => {
-        setMenuActive(!menuActive);
-    };
-
+const MenuBar = ({ isMenuActive, handleToggleMenu }) => {
     return (
         <div>
             <div className="title">
                 <h1>VIRTUAL CLOSET</h1>
             </div>
-            <div className={`menu ${menuActive ? 'active' : ''}`}>
+            <div className={`menu ${isMenuActive ? 'active' : ''}`}>
                 <ul>
                     <MenuItem text="Home" />
                     <MenuItem text="About" />
-                    <MenuItem text="Services" />
-                    <MenuItem text="Portfolio" />
+                    <MenuItem text="Gallery" />
                     <MenuItem text="Contact Us" />
                 </ul>
             </div>
@@ -29,7 +22,6 @@ const MenuBar = () => {
                     <FaBars /> {/* Utilizamos el icono de Font Awesome */}
                 </a>
             </div>
-
         </div>
     );
 };
